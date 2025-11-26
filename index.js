@@ -18,8 +18,10 @@ function isValidNumber(n, base) {
   // take base - 1 to create dynamic regex expression
   let newString = baseString.slice(0, base);
   console.log(newString);
-  let re = new Regex(`${newString}`, 'g');
-  console.log(re.test(n));
+  let nLength = n.replaceAll(/01/g, 4);
+  console.log(nLength);
+  // let re = new Regex(`${newString}`, 'g');
+  // console.log(re.test(n))
   // if n !contains digits > base - 1
   // return false
   // else return true
@@ -49,3 +51,11 @@ function isValidNumber(n, base) {
 // The start and end parameters specifies the part of the string to extract.
 // The first position is 0, the second is 1, ...
 // A negative number selects from the end of the string.
+
+// The replaceAll() method searches a string for a value or a regular expression.
+// The replaceAll() method returns a new string with all values replaced.
+// The replaceAll() method does not change the original string.
+// The replaceAll() method was introduced in JavaScript 2021.
+// text = text.replaceAll(/cats/g,"dogs");
+
+isValidNumber('10201', 2);
