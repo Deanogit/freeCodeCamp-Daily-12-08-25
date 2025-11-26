@@ -22,7 +22,8 @@ function isValidNumber(n, base) {
   console.log(newString);
   // test if it doesn't include
   console.log(testString[1]);
-  const regex = /newString/gi;
+  // const regex = /[newString]/gi
+  const regex = /[testString[1]]/gi;
   // let re = new Regex(`${newString}`, 'g');
   let test = regex.test(n);
   console.log(test);
@@ -100,4 +101,12 @@ function isValidNumber(n, base) {
 // let result1 = pattern1.test(text);
 
 isValidNumber('10201', 4);
-isValidNumber('10251', 4);
+isValidNumber('10251', 2);
+
+const str = 'table football';
+
+// const regex = /fo+/;
+// const globalRegex = /fo+/g;
+
+// console.log(regex.test(str));
+// Expected output: true
