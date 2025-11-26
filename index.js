@@ -17,9 +17,20 @@ function isValidNumber(n, base) {
   const baseString = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   // take base - 1 to create dynamic regex expression
   let newString = baseString.slice(0, base);
+  // what happens if I look for the ones that shouldn't be in the string...
+  let testString = baseString.split(base - 1);
   console.log(newString);
-  let nLength = n.replaceAll(/[`${newString}`]/g, '');
-  console.log(!nLength > 0);
+  // test if it doesn't include
+  console.log(testString[1]);
+  const regex = /newString/gi;
+  // let re = new Regex(`${newString}`, 'g');
+  let test = regex.test(n);
+  console.log(test);
+
+  // console.log(n.includes(/[`${testString}`]+/g))
+  // returns... TypeError: Argument to String.prototype.includes cannot be a RegExp
+  // let nLength = n.replaceAll(/[`${newString}`]+/g, "")
+  // console.log(nLength)
   // let re = new Regex(`${newString}`, 'g');
   // console.log(re.test(n))
   // if n !contains digits > base - 1
@@ -58,4 +69,35 @@ function isValidNumber(n, base) {
 // The replaceAll() method was introduced in JavaScript 2021.
 // text = text.replaceAll(/cats/g,"dogs");
 
-isValidNumber('10201', 2);
+// Remove spaces with replace() using a regular expression:
+
+// let text = "       Hello World!        ";
+// let result = text.replace(/^\s+|\s+$/gm,'');
+
+// The includes() method returns true if a string contains a specified string.
+// Otherwise it returns false.
+// The includes() method is case sensitive.
+
+// RexExp Character Classes
+// A character class is one or more characters enclosed in square brackets:
+
+// Class	Description
+// [a]	Matches the character between the brackets
+// [^a]	Matches all characters NOT between the brackets
+// [abc]	Matches all characters between the brackets
+// [^abc]	Matches all characters NOT between the brackets
+// [a-z]	Matches all characters in the range from a to z
+// [^a-z]	Matches all characters NOT in the range from a to z
+// [0-9]	Matches all characters in the range from 0 to 9
+// [^0-9]	Matches all characters NOT in the range from 0 to 9
+
+// test()	Tests for a match in a string. Returns true or false
+// The test() method tests for a match in a string.
+
+// If it finds a match, it returns true, otherwise it returns false.
+// // Look for "Hello"
+// let pattern1 = /Hello/g;
+// let result1 = pattern1.test(text);
+
+isValidNumber('10201', 4);
+isValidNumber('10251', 4);
