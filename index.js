@@ -18,8 +18,8 @@ function isValidNumber(n, base) {
   // take base - 1 to create dynamic regex expression
   let newString = baseString.slice(0, base);
   console.log(newString);
-  let nLength = n.replaceAll(/01/g, 4);
-  console.log(nLength);
+  let nLength = n.replaceAll(/[`${newString}`]/g, '');
+  console.log(!nLength > 0);
   // let re = new Regex(`${newString}`, 'g');
   // console.log(re.test(n))
   // if n !contains digits > base - 1
