@@ -12,33 +12,33 @@
 // Base 16: 0-9 and A-F
 // Base 36: 0-9 and A-Z
 
-function isValidNumber(n, base) {
-  console.log(n, base);
-  const baseString = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  // take base - 1 to create dynamic regex expression
-  let newString = baseString.slice(0, base);
-  // what happens if I look for the ones that shouldn't be in the string...
-  let testString = baseString.split(base - 1);
-  console.log(newString);
-  // test if it doesn't include
-  console.log(testString[1]);
-  // const regex = /[newString]/gi
-  const regex = /[testString[1]]/gi;
-  // let re = new Regex(`${newString}`, 'g');
-  let test = regex.test(n);
-  console.log(test);
+// function isValidNumber(n, base) {
+// console.log(n, base)
+// const baseString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+// take base - 1 to create dynamic regex expression
+// let newString = baseString.slice(0, base);
+// what happens if I look for the ones that shouldn't be in the string...
+// let testString = baseString.split(base - 1)
+// console.log(newString)
+// test if it doesn't include
+// console.log(testString[1])
+// const regex = /[newString]/gi
+// const regex = /[testString[1]]/gi
+// let re = new Regex(`${newString}`, 'g');
+// let test = regex.test(n)
+// console.log(test)
 
-  // console.log(n.includes(/[`${testString}`]+/g))
-  // returns... TypeError: Argument to String.prototype.includes cannot be a RegExp
-  // let nLength = n.replaceAll(/[`${newString}`]+/g, "")
-  // console.log(nLength)
-  // let re = new Regex(`${newString}`, 'g');
-  // console.log(re.test(n))
-  // if n !contains digits > base - 1
-  // return false
-  // else return true
-  //  return n;
-}
+// console.log(n.includes(/[`${testString}`]+/g))
+// returns... TypeError: Argument to String.prototype.includes cannot be a RegExp
+// let nLength = n.replaceAll(/[`${newString}`]+/g, "")
+// console.log(nLength)
+// let re = new Regex(`${newString}`, 'g');
+// console.log(re.test(n))
+// if n !contains digits > base - 1
+// return false
+// else return true
+//  return n;
+// }
 
 // let arrayOfStrings = ['James', 'Bond', 'is', 'cool'];
 // let largeText = "The James Bond series focuses on a fictional British Secret Service agent created in 1953 by writer Ian Fleming, who featured him in twelve novels and two short-story collections. Since Fleming's death in 1964, eight other authors have written authorised Bond novels or novelisations: Kingsley Amis, Christopher Wood, John Gardner, Raymond Benson, Sebastian Faulks, Jeffery Deaver, William Boyd, and Anthony Horowitz. The latest novel is With a Mind to Kill by Anthony Horowitz, published in May 2022. Additionally Charlie Higson wrote a series on a young James Bond, and Kate Westbrook wrote three novels based on the diaries of a recurring series character, Moneypenny.";
@@ -100,13 +100,61 @@ function isValidNumber(n, base) {
 // let pattern1 = /Hello/g;
 // let result1 = pattern1.test(text);
 
-isValidNumber('10201', 4);
-isValidNumber('10251', 2);
+// isValidNumber("10201", 4)
+// isValidNumber("10251", 2)
 
-const str = 'table football';
+// const str = "table football";
 
 // const regex = /fo+/;
 // const globalRegex = /fo+/g;
 
 // console.log(regex.test(str));
 // Expected output: true
+
+// // Create an Array
+// const ages = [32, 33, 16, 40];
+
+// Create a Test Function
+// function checkAge(age) {
+//  return age > 18;
+// }
+
+// Are all ages over 18?
+// ages.every(checkAge);
+
+// The every() method executes a function for each array element.
+// The every() method returns true if the function returns true for all elements.
+// The every() method returns false if the function returns false for one element.
+// The every() method does not execute the function for empty elements.
+// The every() method does not change the original array
+
+// regex function
+// function check(n, base) {
+//   const baseString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//   const regex = baseString.slice(0, base);
+//   console.log(regex)
+// return regex.test(n)
+// }
+
+function isValidNumber(n, base) {
+  console.log(n, base);
+  const baseString = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // take base and return the characters for checking n
+  const testCharacters = baseString.slice(base);
+  console.log(testCharacters);
+  const isIncluded = testCharacters[0];
+  console.log(isNotIncluded);
+  const isNotIncluded = testCharacters[1];
+  // put these in a regex
+  // let regext = new RegExp(pattern, flags)
+  const regex = new RegExp(`[${isNotIncluded}]`, 'gi');
+  console.log(regex);
+
+  if (regex.test(n)) {
+    return false;
+  }
+  return true;
+}
+
+isValidNumber('abc', 32);
+isValidNumber('5G3F8F', 16);
