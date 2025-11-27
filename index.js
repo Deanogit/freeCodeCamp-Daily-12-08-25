@@ -137,17 +137,15 @@
 // }
 
 function isValidNumber(n, base) {
-  console.log(n, base);
+  console.log("Let's start with: ", n, base);
   const baseString = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   // take base and return the characters for checking n
   const testCharacters = baseString.slice(base);
   console.log(testCharacters);
-  const isIncluded = testCharacters[0];
-  console.log(isNotIncluded);
-  const isNotIncluded = testCharacters[1];
+
   // put these in a regex
   // let regext = new RegExp(pattern, flags)
-  const regex = new RegExp(`[${isNotIncluded}]`, 'gi');
+  const regex = new RegExp(`[${testCharacters}]`, 'gi');
   console.log(regex);
 
   if (regex.test(n)) {
@@ -156,5 +154,5 @@ function isValidNumber(n, base) {
   return true;
 }
 
-isValidNumber('abc', 32);
-isValidNumber('5G3F8F', 16);
+// isValidNumber("abc", 32)
+// isValidNumber("5G3F8F", 16)
